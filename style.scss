@@ -1,0 +1,158 @@
+$neutral-blue: hsl(225, 100%, 94%);
+$blue: hsl(245, 75%, 52%);
+$navy-blue: hsl(223, 47%, 23%);
+$white: hsl(225, 100%, 98%);
+$gray: hsl(224, 23%, 55%);
+$primary-font: "Red Hat Display", sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $primary-font;
+  background-color: $neutral-blue;
+  background-image: url(./images/pattern-background-desktop.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  @media screen and (max-width: 600px) {
+    background-image: url(./images/pattern-background-mobile.svg);
+  }
+}
+
+.container {
+  background-color: $white;
+  border-radius: 15px;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  margin: 0 2em;
+  max-width: 480px;
+  width: 100%;
+  overflow: hidden;
+
+  picture {
+    width: 100%;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    margin: 0 auto 2em;
+    max-width: 80%;
+
+    h1 {
+      font-weight: 900;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      color: $navy-blue;
+    }
+
+    p {
+      color: $gray;
+      font-size: clamp(0.9rem, 4vw, 1.1rem);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .subscription-plan {
+      background-color: hsla(225, 100%, 94%, 0.3);
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2em;
+      padding: 1.5em;
+      width: 100%;
+      flex-wrap: wrap;
+      font-size: clamp(0.9rem, 4vw, 1.1rem);
+
+      .plan {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5em;
+
+        .plan-info {
+          .plan-name {
+            font-weight: 700;
+          }
+
+          .plan-price {
+            color: $gray;
+          }
+        }
+      }
+
+      .change-link {
+        a {
+          color: $blue;
+          font-weight: 700;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+
+      .proceed-btn {
+        background-color: $blue;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        color: $white;
+        border: none;
+        border-radius: 10px;
+        padding: 1em;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: clamp(0.9rem, 4vw, 1.1rem);
+
+        &:hover {
+          background-color: darken($blue, 10%);
+        }
+      }
+
+      .cancel-btn {
+        background-color: transparent;
+        color: $gray;
+        border: none;
+        border-radius: 10px;
+        padding: 1em;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: clamp(0.9rem, 4vw, 1.1rem);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
